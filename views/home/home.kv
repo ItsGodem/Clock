@@ -1,0 +1,75 @@
+<Home>:
+
+    orientation: "vertical"
+    BackBox:
+
+        bcolor: app.color_primary_bg
+        BoxLayout:
+            padding:[dp(80),0,dp(80),0]
+            RoundedButton:
+                text: 'Clock'
+                font_name: app.fonts.heading
+                font_size: app.fonts.size.h4
+                bcolor: app.color_primary
+                radius:[self.width*2]
+				on_release: root.ids.scrn_mngr.current = 'scrn_auth'
+        BoxLayout:
+
+            padding:[dp(80),0,dp(80),0]
+            RoundedButton:
+                text: 'CountDown'
+                font_name: app.fonts.heading
+                font_size: app.fonts.size.h4
+                height:self.width
+                bcolor: app.color_primary_f
+                radius:[self.width*2]
+				on_release: root.ids.scrn_mngr.current = 'scrn_coun'
+				on_release: Coun.render(Coun(),'_')
+
+        BoxLayout:
+
+            padding:[dp(80),0,dp(80),0]
+            RoundedButton:
+                text: 'Temporary'
+                font_name: app.fonts.heading
+                font_size: app.fonts.size.h4
+                height:self.width
+                bcolor: app.color_primary_s
+                radius:[self.width*2]
+				on_release: root.ids.scrn_mngr.current = 'scrn_temporary'
+
+    Drivider:
+        id: br
+        
+    BackBox:
+        size_hint_y:None
+        height:dp(500)
+        bcolor: app.color_primary_bg
+        ScreenManager:
+            id:scrn_mngr
+            
+            transition: FadeTransition()
+            Screen:
+				name: 'scrn_coun'
+
+				Coun:
+					id: coun
+			Screen:
+				name: 'scrn_temporary'
+
+				Temporary:
+					id: temporary
+			Screen:
+				name: 'scrn_auth'
+				
+				Auth:
+					id: auth
+<Drivider@Widget>:
+    size_hint_y: None   
+    height: dp(2.2)
+    canvas.before:
+        Color:
+            rgba: rgba('#3f3f3f') 
+        Rectangle:
+            pos:self.pos
+            size: self.size

@@ -1,0 +1,40 @@
+import requests
+import webbrowser
+from bs4 import BeautifulSoup
+import time
+a = input()
+# Send a GET request to the website
+url = "https://search.brave.com/search?q="+a
+response = requests.get(url)
+
+# Parse the HTML content using BeautifulSoup
+soup = BeautifulSoup(response.content, "html.parser")
+
+# Find and extract specific elements from the webpage
+# Example: Extract all the links on the page
+#links = soup.find_all("a")
+#for link in links:
+#    print(link.get("href"))
+
+# Example: Extract the text from a specific element with a class name
+element = soup.find("div" ,class_="snippet svelte-1ckzfks")
+if element:
+    h=element.a.get('href')
+response1 = requests.get(h)
+
+# Parse the HTML content using BeautifulSoup
+soup2 = BeautifulSoup(response.content, "html.parser")
+
+# Find and extract specific elements from the webpage
+# Example: Extract all the links on the page
+#links = soup.find_all("a")
+#for link in links:
+#    print(link.get("href"))
+
+# Example: Extract the text from a specific element with a class name
+element32 = soup2.find_all("bz")
+with open('f.txt','w') as s:
+     
+    for x in element32:
+        s.write(str(x))
+        print(str(x))

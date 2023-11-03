@@ -1,0 +1,197 @@
+<Coun>:
+	orientation:'vertical'
+	size_hint_y:1
+	size_hint_x:1
+	BoxLayout:
+		size_hint_y:.3
+		size_hint_x:1
+		valign:'top'
+		halign:'center'
+		BackBox:
+			valign:'bottom'
+			halign:'center'
+			RoundedButton:
+				text:icon('icon-arrow-up')
+				color:app.color_primary
+				font_size:app.fonts.size.extra
+				on_release: root.up('hur')
+
+				disabled:root.stbutton
+		BackBox:
+			valign:'bottom'
+			halign:'center'
+			RoundedButton:
+				text:icon('icon-arrow-up')
+				color:app.color_primary
+				font_size:app.fonts.size.extra
+				on_release: root.up('min')
+
+				disabled:root.stbutton
+		BackBox:
+			valign:'bottom'
+			halign:'center'
+			RoundedButton:
+				text:icon('icon-arrow-up')
+				color:app.color_primary
+				font_size:app.fonts.size.extra
+				on_release: root.up('sec')
+				disabled:root.stbutton
+	AnchorLayout:
+		anchor_x:'center'
+
+		size_hint_y:.3
+		AnchorLayout:
+			anchor_y:'center'
+			size_hint_y:1
+			size_hint_x:1
+			BoxLayout:
+				padding:[0,0,0,0]
+				size_hint_y:.6
+				height:dp(250)
+				BackBox:
+					canvas.before:
+						Color:
+							rgba: 0, 0, 0, .3
+						Line:
+							width: 2.360
+							ellipse: (60, 210, 150, 150, 0, 360)
+					canvas.after:
+						Color:
+							rgba: app.red
+						Line:
+							width: 2.
+							ellipse: (60, 210, 150, 150, root.hurs, 0)
+					Text:
+						text:str(int(root.hurs/15))
+						font_size: app.fonts.size.extra
+						color: app.red
+						halign:'center'
+						valign:'top'
+				BackBox:
+					canvas.before:
+						Color:
+							rgba: 0, 0, 0, .3
+						Line:
+							width: 2.360
+							ellipse: (325, 210, 150, 150, 0, 360)
+					canvas.after:
+						Color:
+							rgba: app.green
+						Line:
+							width: 2.
+							ellipse: (325, 210, 150, 150, root.mins, 0)
+					Text:
+						text:str(int(root.mins/6))
+						font_size: app.fonts.size.extra
+						color: app.green
+						halign:'center'
+						valign:'top'
+
+				BackBox:
+					canvas.before:
+						Color:
+							rgba: 0, 0, 0, .3
+						Line:
+							width: 2.360
+							ellipse: (595, 210, 150, 150, 0, 360)
+					canvas.after:
+						Color:
+							rgba: app.blue
+						Line:
+							width: 2.
+							ellipse: (595, 210, 150, 150, root.secs, 0)
+					Text:
+						text:str(int(root.secs/6))
+						font_size: app.fonts.size.extra
+						color: app.blue
+						halign:'center'
+						valign:'top'
+	BoxLayout:
+		size_hint_y:.3
+		size_hint_x:1
+		valign:'top'
+		halign:'center'
+		BackBox:
+			RoundedButton:
+				text:icon('icon-arrow-down')
+				color:app.color_primary
+				
+				font_size:app.fonts.size.extra
+				on_release:root.down('hur')
+				disabled:root.stbutton
+		BackBox:
+			RoundedButton:
+				text:icon('icon-arrow-down')
+				color:app.color_primary
+				
+				font_size:app.fonts.size.extra
+				on_release:root.down('min')
+				disabled:root.stbutton
+		BackBox:
+			RoundedButton:
+				text:icon('icon-arrow-down')
+				color:app.color_primary
+				
+				font_size:app.fonts.size.extra
+				on_release:root.down('sec')
+				disabled:root.stbutton
+	BoxLayout:
+		size_hint_y:.1
+		size_hint_x:1
+		BoxLayout:
+			padding:[dp(300),0,0,dp(24)]
+			valign:'center'
+			halign:'center'
+			BoxLayout:
+				size_hint_y:None
+				size_hint_x:None
+				padding:[dp(12),0,dp(12),0]
+				halign:'center'
+				valign:'center'
+				
+				width:dp(64)
+				height:dp(48)
+				RoundedButton:
+
+					text: icon('icon-square')
+					font_name: app.fonts.heading
+					font_size:app.fonts.size.h2
+					radius:[self.width*2]
+					bcolor: app.color_primary
+					on_release:root.re()
+			
+			BoxLayout:
+				size_hint_y:None
+				size_hint_x:None
+				padding:[dp(12),0,dp(12),0]
+				halign:'center'
+				valign:'center'
+				
+				width:dp(64)
+				height:dp(48)
+				RoundedButton:
+
+					text: icon('icon-play')
+					font_name: app.fonts.heading
+					font_size:app.fonts.size.h2
+					radius:[self.width*2]
+					bcolor: app.color_primary
+					on_release:root.play()		
+			
+			BoxLayout:
+				size_hint_y:None
+				size_hint_x:None
+				padding:[dp(12),0,dp(12),0]
+				halign:'center'
+				valign:'center'
+				
+				width:dp(64)
+				height:dp(48)
+				RoundedButton:
+
+					text: icon('icon-pause')
+					font_name: app.fonts.heading
+					font_size:app.fonts.size.h2
+					radius:[self.width*2]
+					bcolor: app.color_primary
+					on_release:root.pu()		

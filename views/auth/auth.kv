@@ -1,0 +1,68 @@
+<Auth>:
+	orientation:'vertical'
+	AnchorLayout:
+		anchor_x:'center'
+		AnchorLayout:
+			anchor_y:'center'
+			BoxLayout:
+				padding:[0,0,0,0]
+				size_hint_y:None
+				height:dp(250)
+				BackBox:
+					canvas.before:
+						Color:
+							rgba: 0, 0, 0, .3
+						Line:
+							width: 2.360
+							ellipse: (60, 170, 150, 150, root.hur, 360)
+					canvas.after:
+						Color:
+							rgba: app.red
+						Line:
+							width: 2.
+							ellipse: (60, 170, 150, 150, 0, root.hur)
+					Text:
+						text:root.hur_str
+						font_size: app.fonts.size.extra
+						color: app.red
+						halign:'center'
+						valign:'center'
+				BackBox:
+					canvas.before:
+						Color:
+							rgba: 0, 0, 0, .3
+						Line:
+							width: 2.360
+							ellipse: (325, 170, 150, 150, root.min, 360)
+					canvas.after:
+						Color:
+							rgba: app.green
+						Line:
+							width: 2.
+							ellipse: (325, 170, 150, 150, 0, root.min)
+					Text:
+						text:root.min_str 
+						font_size: app.fonts.size.extra
+						color: app.green
+						halign:'center'
+						valign:'center'
+				BackBox:
+					canvas.before:
+						Color:
+							rgba: 0, 0, 0, .3
+						Line:
+							width: 2.360
+							ellipse: (595, 170, 150, 150, int(root.sec), 360)
+					canvas.after:
+						Color:
+							rgba: app.blue
+						Line:
+							width: 2.
+							ellipse: (595, 170, 150, 150, 0, int(root.sec))
+					Text:
+						text:root.sec_str
+						font_size: app.fonts.size.extra
+						color: app.blue
+						halign:'center'
+						valign:'center'
+					
